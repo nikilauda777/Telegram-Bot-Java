@@ -11,7 +11,6 @@ public class Weather {
 
     public static String getWheater(String message, Model model) throws IOException {
 
-        //message= message.replace("/Погода", "");
         URL url = new URL("http://api.openweathermap.org/data/2.5/weather?q=" + message + "%20&units=metric&appid=c8726a6fda5490381ede832e7e9b30dd");
         Scanner in = new Scanner((InputStream) url.getContent());
 
@@ -38,12 +37,10 @@ public class Weather {
 
         }
 
-       // System.out.println(result);
-
-        return "Ваш город: " + model.getName() + "\n"
-                + "Температура: " + model.getTemp() + "°С" + "\n"
-                + "Влажность: " + model.getHumidity() + "%" + "\n"
-                + "Скорость ветра: " + model.getWind() + "km/h" + "\n"
+        return "Your City: " + model.getName() + "\n"
+                + "Temperature: " + model.getTemp() + "°С" + "\n"
+                + "Humidity: " + model.getHumidity() + "%" + "\n"
+                + "Wind: " + model.getWind() + "km/h" + "\n"
                 + "http://openweathermap.org/img/w/" + model.getIcon() + ".png";
     }
 }

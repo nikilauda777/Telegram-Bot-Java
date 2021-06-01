@@ -27,33 +27,27 @@ public class BotVajtersic {
             int r = (int) Math.floor(Math.random() * 7);
             s = output[r];
         }
-
-        if (s.equals("Перевертыш")) {
-            s = "Напишите ваше слово, образец: слово/Перевертыш";
+        if (s.equals("Flip-Flop")) {
+            s = "Write your Word, example : Word/Flip-Flop";
         }
-
-        if (s.matches("[a-zA-Zа-яА-Я0-9\\s]+/Перевертыш")) {
+        if (s.matches("[a-zA-Zа-яА-Я0-9\\s]+/Flip-Flop")) {
             s = Rotation(s);
         }
-
         if (s.equals("/start")) {
             s = "Здравствуй мой юный друг, я твой карманный Кудесник , который умеет выполнять различные задачи. Хочешь посмотреть фильм, но не" +
                     "знаешь какой... Не вопрос! Также доступные и другие полезные опции - тебе всего лишь нужно тыкнуть на кнопки которые вот вот вылезут на дисплее:)";
         }
-
-        if (s.equals("Погода") || s.equals("погода") || s.equals(Bot.weather)) {
-            s = "Введите ваш город на английском, к примеру : London";
+        if (s.equals("Wheather") || s.equals("Wheather") || s.equals(Bot.weather)) {
+            s = "Select your City like : London";
         }
-
-        if (s.equals("корона") || s.equals("Корона") || s.equals(Bot.corona)) {
+        if (s.equals("Corona") || s.equals("Corona") || s.equals(Bot.corona)) {
             try {
                 s = getCorona();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-
-        if (s.equals("Курс") || s.equals("курс") || s.equals(Bot.dollar)) {
+        if (s.equals("Kurs") || s.equals("Kurs") || s.equals(Bot.dollar)) {
             try {
                 s = getValuta();
             } catch (IOException e) {
@@ -68,50 +62,44 @@ public class BotVajtersic {
 
             s = getBinary(s);
         }
-
-        if (s.equals("Новинки")) {
+        if (s.equals("New")) {
             try {
-                s = Film.getFilm("Новинки");
+                s = Film.getFilm("New");
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
         }
-        if (s.equals("Комедии")) {
+        if (s.equals("Comedy")) {
             try {
-                s = Film.getFilm("Комедии");
+                s = Film.getFilm("Comedy");
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
         }
-        if (s.equals("Ужасы")) {
+        if (s.equals("Horror")) {
             try {
-                s = Film.getFilm("Ужасы");
+                s = Film.getFilm("Horror");
             } catch (IOException e) {
-                e.printStackTrace();
+               e.printStackTrace();
             }
-
         }
 
         return s;
     }
-//****************************************************************************
-
-
+    //****************************************************************************
     public static String getCorona() throws IOException {
         Document stat =  Jsoup.connect("https://en.wikipedia.org/wiki/Template:COVID-19_pandemic_data").get();
 
         Elements krank1 = stat.select("#thetable > tbody > tr:nth-child(6) > td:nth-child(3)");  // 4 позиция + 2 3 -первый столб
         Elements deaths = stat.select("#thetable > tbody > tr:nth-child(6) > td:nth-child(4)");
         Elements recovery = stat.select("#thetable > tbody > tr:nth-child(6) > td:nth-child(5)");
-        return "Количество заболевших: " + krank1.text() + "\nВыздоровели: " + recovery.text() +
-                "\nПогибло: " + deaths.text() + die;
+        return "Infected: " + krank1.text() + "\nRecovery: " + recovery.text() +
+                "\nDeaths: " + deaths.text() + die;
     }
 
     //****************************************************************************
     public static String getBinary(String s) {
-        int bin = Integer.parseInt(s);   // число
+        int bin = Integer.parseInt(s);   
         if (bin < 0) {
             bin = bin * -1; // переводим в положительное
             s = Integer.toBinaryString(bin); // опять стринг

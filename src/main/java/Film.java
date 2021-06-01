@@ -51,19 +51,19 @@ public class Film {
         Elements horrelement10 = horror.select("#jr-pagenav-ajax > div.jrTableGrid.jrDataList.jrResults > div:nth-child(10) > div.jr-listing-outer.jrCol.jrTableColumnMain > div.jrContentTitle");
 
 
-    if ( s.equals("Новинки")) {
-    result = "Новинки 2019-20 года:" + "\n" + newelements.text() + "\n" + newelements1.text() + "\n" + newelements2.text() + "\n" + newelements3.text()
+    if ( s.equals("New")) {
+    result = "New Films:" + "\n" + newelements.text() + "\n" + newelements1.text() + "\n" + newelements2.text() + "\n" + newelements3.text()
             + "\n" + newelements4.text() + "\n" + newelements5.text() + "\n" + newelements6.text() + "\n" + newelements7.text()
             + "\n" + newelements8.text() + "\n" + newelements9.text();
             }
 
-    if (s.equals("Комедии")){
-        result = "Лучшие комедии 2019-20 года:" + "\n"+  comelement1.text() + "\n"+  comelement2.text()+ "\n"+  comelement3.text()+ "\n"+  comelement4.text()
+    if (s.equals("Comedy")){
+        result = "Comedies:" + "\n"+  comelement1.text() + "\n"+  comelement2.text()+ "\n"+  comelement3.text()+ "\n"+  comelement4.text()
                 + "\n"+  comelement5.text()+ "\n"+  comelement6.text()+ "\n"+  comelement7.text()+ "\n"+  comelement8.text()+ "\n"+  comelement9.text()
                 + "\n"+  comelement10.text();}
 
-    if(s.equals("Ужасы")){
-        result = "Ужастики:" + "\n" + horrelement1.text()+ "\n" + horrelement2.text()+ "\n" + horrelement3.text()+ "\n" + horrelement4.text()
+    if(s.equals("Horror")){
+        result = "Horrors:" + "\n" + horrelement1.text()+ "\n" + horrelement2.text()+ "\n" + horrelement3.text()+ "\n" + horrelement4.text()
                 + "\n" + horrelement5.text()+ "\n" + horrelement6.text()+ "\n" + horrelement7.text()+ "\n" + horrelement8.text()
                 + "\n" + horrelement9.text() + "\n" + horrelement10.text();
 
